@@ -18,6 +18,9 @@ function Friend(props) {
     <div className='home-container'>
       <div className='home-content'>
         <h1>{thechosen.name}</h1>
+        <h1>{thechosen.age}</h1>
+        <h1>{thechosen.id}</h1>
+        <h1>{thechosen.email}</h1>
       </div>
     </div>
   );

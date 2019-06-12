@@ -27,6 +27,7 @@ function FriendsDisplay(props) {
           </div>
         </div>
       ))}
+      <button>Add a pal</button>
     </div>
   );
 }

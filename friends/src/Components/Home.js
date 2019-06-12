@@ -1,4 +1,7 @@
 import React from 'react';
+import { Route, NavLink } from 'react-router-dom';
+
+import './Home.scss';
 
 function Home() {
   return (

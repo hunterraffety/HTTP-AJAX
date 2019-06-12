@@ -39,19 +39,19 @@ class App extends React.Component {
             <NavLink exact to='/'>
               Home
             </NavLink>
-            <NavLink to='/friends'>Chack'em</NavLink>
+            <NavLink to='/friend-list'>Chack'em</NavLink>
           </div>
         </nav>
-
         <Route exact path='/' component={Home} />
         <Route
-          path='/friends'
+          exact
+          path='/friend-list'
           render={props => (
             <FriendsDisplay {...props} friends={this.state.friends} />
           )}
         />
         <Route
-          path='/friends/:id'
+          path='/friend-list/:id'
           render={props => <Friend {...props} friends={this.state.friends} />}
         />
       </div>

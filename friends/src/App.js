@@ -30,16 +30,6 @@ class App extends React.Component {
       });
   }
 
-  addAFriend = e => {
-    e.preventDefault();
-    console.log(e);
-  };
-
-  changeHandler = e => {
-    e.preventDefault();
-    console.log(e);
-  };
-
   render() {
     return (
       <div className='App'>
@@ -71,13 +61,8 @@ class App extends React.Component {
         <Route
           exact
           path='/add'
-          render={props => (
-            <FriendForm
-              {...props}
-              addAFriend={this.addAFriend}
-              changeHandler={this.changeHandler}
-            />
-          )}
+          render={props => <FriendForm {...props} />}
+          friends={this.state.friends}
         />
       </div>
     );

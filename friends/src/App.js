@@ -1,6 +1,5 @@
 // dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
@@ -31,7 +30,12 @@ class App extends React.Component {
       });
   }
 
-  addFriend = e => {
+  addAFriend = e => {
+    e.preventDefault();
+    console.log(e);
+  };
+
+  changeHandler = e => {
     e.preventDefault();
     console.log(e);
   };
@@ -64,7 +68,17 @@ class App extends React.Component {
           path='/friend-list/:id'
           render={props => <Friend {...props} friends={this.state.friends} />}
         />
-        <Route exact path='/add' render={props => <FriendForm {...props} />} />
+        <Route
+          exact
+          path='/add'
+          render={props => (
+            <FriendForm
+              {...props}
+              addAFriend={this.addAFriend}
+              changeHandler={this.changeHandler}
+            />
+          )}
+        />
       </div>
     );
   }

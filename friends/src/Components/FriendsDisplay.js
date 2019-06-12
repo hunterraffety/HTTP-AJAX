@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import Friend from './Friend';
-import FriendForm from './FriendForm';
 
 import './FriendsDisplay.scss';
 

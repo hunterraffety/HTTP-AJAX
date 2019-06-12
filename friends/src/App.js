@@ -5,8 +5,9 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 // components
-import FriendsDisplay from './Components/FriendsDisplay';
 import Friend from './Components/Friend';
+import FriendsDisplay from './Components/FriendsDisplay';
+import FriendForm from './Components/FriendForm';
 import Home from './Components/Home';
 
 import './App.scss';
@@ -30,6 +31,11 @@ class App extends React.Component {
       });
   }
 
+  addFriend = e => {
+    e.preventDefault();
+    console.log(e);
+  };
+
   render() {
     return (
       <div className='App'>
@@ -39,7 +45,11 @@ class App extends React.Component {
             <NavLink exact to='/'>
               Home
             </NavLink>
+            <br />
             <NavLink to='/friend-list'>Chack'em</NavLink>
+            <br />
+            <NavLink to={`/add`}>Add a pal</NavLink>
+            <br />
           </div>
         </nav>
         <Route exact path='/' component={Home} />
@@ -54,6 +64,7 @@ class App extends React.Component {
           path='/friend-list/:id'
           render={props => <Friend {...props} friends={this.state.friends} />}
         />
+        <Route exact path='/add' render={props => <FriendForm {...props} />} />
       </div>
     );
   }

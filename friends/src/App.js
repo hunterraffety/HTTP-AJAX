@@ -6,6 +6,8 @@ import axios from 'axios';
 
 // components
 import FriendsDisplay from './Components/FriendsDisplay';
+import Friend from './Components/Friend';
+import Home from './Components/Home';
 
 import './App.scss';
 
@@ -41,11 +43,16 @@ class App extends React.Component {
           </div>
         </nav>
 
+        <Route exact path='/' component={Home} />
         <Route
           path='/friends'
           render={props => (
             <FriendsDisplay {...props} friends={this.state.friends} />
           )}
+        />
+        <Route
+          path='/friends/:id'
+          render={props => <Friend {...props} friends={this.state.friends} />}
         />
       </div>
     );

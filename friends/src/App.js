@@ -7,6 +7,7 @@ import axios from 'axios';
 import Friend from './Components/Friend';
 import FriendsDisplay from './Components/FriendsDisplay';
 import FriendForm from './Components/FriendForm';
+import FriendUpdate from './Components/FriendUpdate';
 import Home from './Components/Home';
 
 import './App.scss';
@@ -15,7 +16,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      friends: []
+      friends: [],
+      activeFriend: null
     };
   }
 
@@ -34,11 +36,40 @@ class App extends React.Component {
     axios
       .post('http://localhost:5000/friends', friend)
       .then(res => {
-        console.log(res);
+        this.setState({ friends: res.data });
+        this.props.history.push('/friend-list');
       })
       .catch(err => {
         console.log(err);
       });
+  };
+
+  setUpdateForm = (e, friend) => {
+    e.preventDefault();
+    this.setState({ activeFriend: friend }, () => {
+      this.props.history.push('/update-form');
+    });
+  };
+
+  updateFriend = friend => {
+    axios
+      .put(`http://localhost:5000/friends/${friend.id}`, friend)
+      .then(res => {
+        this.setState({ friends: res.data });
+        this.props.history.push('/friend-list');
+      })
+      .catch(err => console.log(err));
+  };
+
+  deleteFriend = (e, friend) => {
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:5000/friends/${friend.id}`)
+      .then(res => {
+        this.setState({ friends: res.data });
+        this.props.history.push('/friend-list');
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -52,10 +83,12 @@ class App extends React.Component {
           <br />
           <NavLink to='/friend-list'>Here's a list of your buddies.</NavLink>
           <br />
-          <NavLink to={`/add`}>Add an acquaintance.</NavLink>
+          <NavLink to={`/add-form`}>Add an acquaintance.</NavLink>
           <br />
         </nav>
+
         <Route exact path='/' component={Home} />
+
         <Route
           exact
           path='/friend-list'
@@ -63,14 +96,34 @@ class App extends React.Component {
             <FriendsDisplay {...props} friends={this.state.friends} />
           )}
         />
+
         <Route
           path='/friend-list/:id'
-          render={props => <Friend {...props} friends={this.state.friends} />}
+          render={props => (
+            <Friend
+              {...props}
+              deleteFriend={this.deleteFriend}
+              setUpdateForm={this.setUpdateForm}
+              friends={this.state.friends}
+            />
+          )}
         />
+
         <Route
           exact
-          path='/add'
+          path='/add-form'
           render={props => <FriendForm {...props} addFriend={this.addFriend} />}
+        />
+
+        <Route
+          path='/update-form'
+          render={props => (
+            <FriendUpdate
+              {...props}
+              updateFriend={this.updateFriend}
+              activeFriend={this.state.activeFriend}
+            />
+          )}
         />
       </div>
     );

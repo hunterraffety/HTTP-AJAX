@@ -62,7 +62,9 @@ class FriendUpdate extends React.Component {
             type='text'
             value={this.state.friend.email}
           />
-          <button type='submit'>Update Friend</button>
+          <button type='submit' className='btn'>
+            Update Friend
+          </button>
         </form>
       </div>
     );

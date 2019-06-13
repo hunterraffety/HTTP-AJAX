@@ -75,7 +75,9 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <h1>Friend-O-Dex</h1>
+        <NavLink exact to='/' className='navlink'>
+          <h1>Friend-O-Dex</h1>
+        </NavLink>
         <span class='sub'>... like Rolodex...</span>
         <nav>
           <NavLink exact to='/' className='navlink'>

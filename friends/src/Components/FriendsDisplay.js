@@ -12,6 +12,7 @@ function FriendsDisplay(props) {
   console.log(props.friends);
   return (
     <div className='friends-display'>
+      <h6>If there are people here you're in a good spot in life.</h6>
       {props.friends.map(friend => (
         <div className='friend-info'>
           <div

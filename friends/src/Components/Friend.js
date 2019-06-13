@@ -3,8 +3,6 @@ import React from 'react';
 import './Friend.scss';
 
 function Friend(props) {
-  console.log(`props from friend:`, props);
-  console.log(`props.friends from friend:`, props.friends);
   const thechosen = props.friends.find(
     friend => `${friend.id}` === props.match.params.id
   );

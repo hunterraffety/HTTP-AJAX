@@ -1,15 +1,117 @@
-.App {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 600px;
+/*! minireset.css v0.0.5 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+iframe {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+a {
+  text-decoration: none;
+  color: maroon;
+}
+body {
   margin: 0 auto;
-  margin: 3rem;
-  background: red;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('./img/papyrus.png');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  min-height: 90vh;
+  width: 960px;
+  padding: 3rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border: 3px solid #e3fff1;
+  border-radius: 7px;
+  background: #f0fdfe;
+  font-size: 3.2rem;
+  text-align: center;
+  h1 {
+    font-weight: 800;
+  }
   nav {
-    background: orange;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    text-align: center;
+    .navlink {
+      color: #276363;
+      display: flex;
+      width: 32%;
+      padding: 1rem;
+      justify-content: center;
+    }
   }
 }

@@ -1,9 +1,29 @@
 .friend-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 0 auto;
   width: 75%;
+  text-align: center;
   .friend-content {
-    background: pink;
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+    flex-direction: column;
+    background: #f0fdfe;
     padding: 1rem;
     margin: 1rem;
+  }
+  .btn {
+    font-size: 1.6rem;
+    font-weight: 500;
+    width: 50%;
+    margin: 3rem;
+    background: none;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
   }
 }

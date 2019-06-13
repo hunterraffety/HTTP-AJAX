@@ -20,11 +20,11 @@ function Friend(props) {
         <h1>Age: {thechosen.age}</h1>
         <h1>Email: {thechosen.email}</h1>
       </div>
-      <button onClick={e => props.setUpdateForm(e, thechosen)}>
+      <button onClick={e => props.setUpdateForm(e, thechosen)} className='btn'>
         Update Friend
       </button>
 
-      <button onClick={e => props.deleteFriend(e, thechosen)}>
+      <button onClick={e => props.deleteFriend(e, thechosen)} className='btn'>
         Delete Friend
       </button>
     </div>

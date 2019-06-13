@@ -75,16 +75,17 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
+        <h1>Friend-o-dex</h1>
         <nav>
-          <h1>Hey! Go check out your friends, friend.</h1>
-          <NavLink exact to='/'>
+          <NavLink exact to='/' className='navlink'>
             Home
           </NavLink>
-          <br />
-          <NavLink to='/friend-list'>Here's a list of your buddies.</NavLink>
-          <br />
-          <NavLink to={`/add-form`}>Add an acquaintance.</NavLink>
-          <br />
+          <NavLink to='/friend-list' className='navlink'>
+            Friends
+          </NavLink>
+          <NavLink to='/add-form' className='navlink'>
+            Add Friend
+          </NavLink>
         </nav>
 
         <Route exact path='/' component={Home} />

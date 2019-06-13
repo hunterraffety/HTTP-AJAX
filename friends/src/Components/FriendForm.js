@@ -54,7 +54,9 @@ class FriendForm extends React.Component {
             type='email'
             value={this.state.friend.email}
           />
-          <button type='submit'>Add Friend</button>
+          <button type='submit' className='btn'>
+            Add Friend
+          </button>
         </form>
       </div>
     );

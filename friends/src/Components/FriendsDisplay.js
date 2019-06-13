@@ -19,10 +19,7 @@ function FriendsDisplay(props) {
             className='item-card'
             key={friend.id}
           >
-            <h1>{friend.id}</h1>
             <h1>{friend.name}</h1>
-            <h1>{friend.age}</h1>
-            <h1>{friend.email}</h1>
           </div>
         </div>
       ))}

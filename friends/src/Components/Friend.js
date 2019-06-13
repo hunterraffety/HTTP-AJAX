@@ -14,12 +14,11 @@ function Friend(props) {
   }
 
   return (
-    <div className='home-container'>
-      <div className='home-content'>
-        <h1>{thechosen.name}</h1>
-        <h1>{thechosen.age}</h1>
-        <h1>{thechosen.id}</h1>
-        <h1>{thechosen.email}</h1>
+    <div className='friend-container'>
+      <div className='friend-content'>
+        <h1>Name: {thechosen.name}</h1>
+        <h1>Age: {thechosen.age}</h1>
+        <h1>Email: {thechosen.email}</h1>
       </div>
     </div>
   );

@@ -3,37 +3,58 @@ import React from 'react';
 import './FriendForm.scss';
 
 class FriendForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      friends: [],
-      name: '',
-      age: 0,
-      email: ''
+      friend: {
+        name: '',
+        age: '',
+        email: ''
+      }
     };
   }
 
-  addAFriend = e => {
-    e.preventDefault();
-    console.log(e);
+  handleChange = e => {
+    this.setState({
+      friend: {
+        ...this.state.friend,
+        [e.target.name]: e.target.value
+      }
+    });
   };
 
-  changeHandler = e => {
+  addFriend = e => {
     e.preventDefault();
-    console.log(e);
+    this.props.addFriend(this.state.friend);
   };
 
   render() {
     return (
       <div className='form-container'>
-        <form onSubmit={this.addAFriend}>
-          <label htmlFor='Name'>Name</label>
+        <h1>Hello. Add a new friend here, pal!</h1>
+        <form onSubmit={this.addFriend}>
           <input
-            type='text'
             name='name'
-            onChange={this.changeHandler}
-            value={this.changeHandler}
+            onChange={this.handleChange}
+            placeholder='Name'
+            type='text'
+            value={this.state.friend.name}
           />
+          <input
+            name='age'
+            onChange={this.handleChange}
+            placeholder='Age'
+            type='text'
+            value={this.state.friend.age}
+          />
+          <input
+            name='email'
+            onChange={this.handleChange}
+            placeholder='Email'
+            type='text'
+            value={this.state.friend.email}
+          />
+          <button type='submit'>Add Friend</button>
         </form>
       </div>
     );

@@ -30,21 +30,30 @@ class App extends React.Component {
       });
   }
 
+  addFriend = friend => {
+    axios
+      .post('http://localhost:5000/friends', friend)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className='App'>
         <nav>
-          <h1>Check yo friends, dude.</h1>
-          <div className='go'>
-            <NavLink exact to='/'>
-              Home
-            </NavLink>
-            <br />
-            <NavLink to='/friend-list'>Chack'em</NavLink>
-            <br />
-            <NavLink to={`/add`}>Add a pal</NavLink>
-            <br />
-          </div>
+          <h1>Hey! Go check out your friends, friend.</h1>
+          <NavLink exact to='/'>
+            Home
+          </NavLink>
+          <br />
+          <NavLink to='/friend-list'>Here's a list of your buddies.</NavLink>
+          <br />
+          <NavLink to={`/add`}>Add an acquaintance.</NavLink>
+          <br />
         </nav>
         <Route exact path='/' component={Home} />
         <Route
@@ -61,8 +70,7 @@ class App extends React.Component {
         <Route
           exact
           path='/add'
-          render={props => <FriendForm {...props} />}
-          friends={this.state.friends}
+          render={props => <FriendForm {...props} addFriend={this.addFriend} />}
         />
       </div>
     );

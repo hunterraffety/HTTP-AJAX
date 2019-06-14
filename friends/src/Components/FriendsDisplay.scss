@@ -1,0 +1,12 @@
+.friends-display {
+  margin: 0 auto;
+  width: 75%;
+  .friend-info {
+    background: #e3eeff;
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+}

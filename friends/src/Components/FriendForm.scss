@@ -1,0 +1,29 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    margin: 1rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      width: 50%;
+      margin: 1rem;
+      font-size: 2.4rem;
+      padding: 2rem;
+      border: 1px solid black;
+      border-radius: 3px;
+    }
+    .btn {
+      background: none;
+      border: 3px solid black;
+      padding: 1.5rem 1rem;
+      border-radius: 3px;
+      width: 30%;
+      margin-top: 1rem;
+      font-size: 1.6rem;
+    }
+  }
+}
